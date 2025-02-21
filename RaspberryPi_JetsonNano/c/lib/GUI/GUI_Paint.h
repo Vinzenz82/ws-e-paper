@@ -180,6 +180,9 @@ typedef struct {
 } PAINT_TIME;
 extern PAINT_TIME sPaint_time;
 
+#ifdef __cplusplus
+extern "C" {
+
 //init and Clear
 void Paint_NewImage(UBYTE *image, UWORD Width, UWORD Height, UWORD Rotate, UWORD Color);
 void Paint_SelectImage(UBYTE *image);
@@ -207,6 +210,10 @@ void Paint_DrawTime(UWORD Xstart, UWORD Ystart, PAINT_TIME *pTime, sFONT* Font, 
 
 //pic
 void Paint_DrawBitMap(const unsigned char* image_buffer);
+}
+#else
+ void Paint_SetPixel(UWORD Xpoint, UWORD Ypoint, UWORD Color);
+#endif
 
 
 #endif
